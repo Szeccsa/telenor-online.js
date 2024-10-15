@@ -1,4 +1,4 @@
-// This script is basically creates a cookie if the user clicks on the login button. No framework or backend used. Made by Szeccsa.
+// This script creates a cookie if the user clicks on the login button. No framework or backend used. Made by Szeccsa.
 function setCookie(name, value, days) {
     const expires = new Date(Date.now() + days * 864e5).toUTCString();
     document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
@@ -21,13 +21,16 @@ function handleLogoutClick(event) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    const loginButton = document.querySelector("button[type='submit']");
+    const loginButton = document.getElementById("login");
     if (loginButton) {
         loginButton.addEventListener("click", handleLoginButtonClick);
     }
 
-    const logoutLinks = document.querySelectorAll("li a[href='#'], a.black-button[href='#']");
-    logoutLinks.forEach(link => {
-        link.addEventListener("click", handleLogoutClick);
+    const logoutButtons = ['logout0', 'logout1', 'logout2'];
+    logoutButtons.forEach(function(logoutId) {
+        const logoutButton = document.getElementById(logoutId);
+        if (logoutButton) {
+            logoutButton.addEventListener("click", handleLogoutClick);
+        }
     });
 });
