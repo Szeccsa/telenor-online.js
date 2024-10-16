@@ -14,6 +14,8 @@ function handleLoginButtonClick(event) {
     location.reload();
 }
 
+console.log("ez mi")
+
 function handleLogoutClick(event) {
     event.preventDefault();
     deleteCookie("tolid"); // Delete the cookie
